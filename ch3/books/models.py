@@ -12,8 +12,8 @@ class Book(models.Model):
 
 
 class Author(models.Model):
-    salutation = models.CharField(max_length=100)
     name = models.CharField(max_length=50)
+    salutation = models.CharField(max_length=100)
     email = models.EmailField()
 
     def __str__(self):
@@ -26,8 +26,4 @@ class Publisher(models.Model):
     website = models.URLField()
 
     def __str__(self):
-        return self.name 
-
-
-
-
+        return self.name
