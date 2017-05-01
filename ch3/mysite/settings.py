@@ -56,7 +56,7 @@ ROOT_URLCONF = 'mysite.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')], # 최상위 폴더의 templates 지정 (base.html 저장)
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
