@@ -1,0 +1,15 @@
+{% extends "base_polls.html" %}
+
+{% block content %}
+
+<h1>{{ object.question_text }}</h1>
+
+<ul>
+{% for choice in object.choice_set.all %}
+<li>{{ choice.choice_text }} - {{ choice.votes }}</li>
+{% endfor %}
+</ul>
+
+<a href="{% url 'polls_cbv:detail' object.id %}"> 다시 투표하기 </a>
+
+{% endblock %}

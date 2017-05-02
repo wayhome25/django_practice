@@ -19,7 +19,7 @@ class IndexView(ListView):
 #--- 특정한 객체 하나를 컨텍스트 변수에 담아서 템플릿에 넘긴다.
 #--- 조회시 사용할 Primary Key 값은 URLconf에서 추출하여 뷰로 넘어온 파라미터를 사용한다.
 class DetailView(DetailView):
-    template_name = 'polls_cbv/detail.html'
+    template_name = 'polls_cbv/detail.html' # 템플릿 재지정
     model = Question
     context_object_name = 'question' # 컨텍스트 디폴트 변수명 object => question 으로 변경
     # 컨텍스트 변수 : object (모델의 특정 레코드, 조회용 pk는 urlConf에서 추출)
@@ -43,3 +43,9 @@ def vote(request, pk):
         # POST 데이터를 정상적으로 처리하였으면
         # 항상 HttpResponseRedirect 를 반환하여 리다이렉션 처리
         return HttpResponseRedirect(reverse('polls_cbv:results', args=(q.id,)))
+
+
+#--- CBV : DetailView
+class ResultsView(DetailView):
+    model = Question
+    template_name = 'polls_cbv/results.html'
