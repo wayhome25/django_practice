@@ -13,8 +13,10 @@ class IndexView(ListView):
     model = Question
     # 컨텍스트 변수 : object_list  (모델의 모든 레코드)
     # 템플릿 파일 : 모델명 소문자_list.html (question_list.html)
-    paginate_by = 10 # CBV pagination 적용 
+    paginate_by = 10 # CBV pagination 적용
 
+    def get_queryset(self):
+        return Question.objects.order_by('-pub_date')
 
 #--- CBV : DetailView
 #--- 특정한 객체 하나를 컨텍스트 변수에 담아서 템플릿에 넘긴다.
