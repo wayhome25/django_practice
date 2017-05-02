@@ -2,10 +2,14 @@
 
 {% block content %}
 <h1>{{ question.question_text }}</h1>
-<form  action="#" method="post">
+
+{% if error_message %}<p>{{ error_message }}</p>{% endif %}
+
+<form  action="{% url 'polls_cbv:vote' question.id %}" method="post">
   {% csrf_token %}
   {% for choice in question.choice_set.all  %}
   <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}">
+  {# request.POST['choice(name값)'] 을 통해서 해당 요소의 value 값을 가져올 수 있다 #}
   <label for="choice{{ forloop.counter }}">{{choice.choice_text}}</label> <br>
   {% endfor %}
   <input type="submit" value="투표하기">
