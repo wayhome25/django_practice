@@ -20,6 +20,7 @@ from mysite import views
 urlpatterns = [
     url(r'^$', views.HomeView.as_view(), name='home'),
     url(r'^polls/', include('polls.urls', namespace='polls')),
+    url(r'^polls_cbv/', include('polls_cbv.urls', namespace='polls_cbv')),
     url(r'^books/', include('books.urls', namespace='books')),
     url(r'^admin/', admin.site.urls),
 ]

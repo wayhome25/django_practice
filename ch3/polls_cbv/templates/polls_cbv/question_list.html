@@ -1,0 +1,16 @@
+{% extends "base_polls.html" %}
+
+{% block content %}
+<h2>설문조사 질문 리스트</h2>
+
+{% if object_list %}
+<ul>
+  {% for question in object_list  %}
+  <li>{{ question.question_text }}</li>
+  {% endfor %}
+</ul>
+{% else %}
+<p>설문조사 목록이 없습니다.</p>
+{% endif %}
+
+{% endblock %}
