@@ -6,10 +6,10 @@
 
 <ul>
 {% for choice in object.choice_set.all %}
-<li>{{ choice.choice_text }} - {{ choice.votes }}</li>
+<li>{{ choice.choice_text }} - {{ choice.votes }} vote{{choice.votes|pluralize}}</li>
 {% endfor %}
 </ul>
 
-<a href="{% url 'polls_cbv:detail' object.id %}"> 다시 투표하기 </a>
+<a href="{% url 'polls_cbv:detail' object.id %}"> 다시 투표하기  </a>
 
 {% endblock %}
