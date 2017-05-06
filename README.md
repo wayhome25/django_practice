@@ -1,11 +1,15 @@
 # Django로 배우는 쉽고 빠른 웹 개발 파이썬 웹 프로그래밍
+- Django로 배우는 쉽고 빠른 웹 개발 파이썬 웹 프로그래밍 기본편, 실전편을 읽고 실습한 내용을 저장합니다.
+
 
 [<img src="http://image.yes24.com/goods/17295239/L" width="300px" />](http://www.yes24.com/24/goods/17295239?scode=032&OzSrank=1)
 
 - 김석훈 지음 | 2015년 04월 | 한빛미디어(주) | 272쪽
-- [한빛 책 소개](http://www.hanbit.co.kr/store/books/look.php?p_code=B5790464800)
+- [책 소개](http://www.hanbit.co.kr/store/books/look.php?p_code=B5790464800)
 
-
+[<img src="http://i.imgur.com/ByCwS29.jpg" width="300px" />](http://i.imgur.com/ByCwS29.jpg)
+- 김석훈 지음 | 2016년 07월 | 한빛미디어(주) | 492쪽
+- [책 소개](http://www.yes24.com/24/goods/29331035?scode=029)
 <!-- ## 이 책을 정리하면서 들었던 생각
 
 - django 문서의 최고봉은 [django 공식 홈페이지](https://docs.djangoproject.com/)입니다.
@@ -25,138 +29,138 @@
 
 * [Django로 배우는 쉽고 빠른 웹 개발 파이썬 웹 프로그래밍](#django로-배우는-쉽고-빠른-웹-개발-파이썬-웹-프로그래밍)
 * [주요 내용 정리](#주요-내용-정리)
-  * [목차](#목차)
+	* [목차](#목차)
 * [3.3 장고에서의 애플리케이션 개발 방식](#33-장고에서의-애플리케이션-개발-방식)
-  * [3.3.1 MTV 패턴](#331-mtv-패턴)
-    * [개발 순서](#개발-순서)
-    * [코딩순서](#코딩순서)
-  * [3.3.2 Model - 데이터베이스 설계](#332-model-데이터베이스-설계)
-  * [3.3.3 Template - 화면 UI 설계](#333-template-화면-ui-설계)
-  * [3.3.4 URLconf - URL 설계](#334-urlconf-url-설계)
-  * [3.3.5 View -로직 설계](#335-view-로직-설계)
+	* [3.3.1 MTV 패턴](#331-mtv-패턴)
+		* [개발 순서](#개발-순서)
+		* [코딩순서](#코딩순서)
+	* [3.3.2 Model - 데이터베이스 설계](#332-model-데이터베이스-설계)
+	* [3.3.3 Template - 화면 UI 설계](#333-template-화면-ui-설계)
+	* [3.3.4 URLconf - URL 설계](#334-urlconf-url-설계)
+	* [3.3.5 View -로직 설계](#335-view-로직-설계)
 * [3.4 프로젝트 뼈대 만들기](#34-프로젝트-뼈대-만들기)
-  * [3.4.1 프로젝트 생성](#341-프로젝트-생성)
+	* [3.4.1 프로젝트 생성](#341-프로젝트-생성)
 * [3.5 어플리케이션 개발하기 - 설계](#35-어플리케이션-개발하기-설계)
-  * [화면 UI 설계](#화면-ui-설계)
-  * [테이블 설계](#테이블-설계)
+	* [화면 UI 설계](#화면-ui-설계)
+	* [테이블 설계](#테이블-설계)
 * [3.6 어플리케이션 개발하기 - Model 코딩](#36-어플리케이션-개발하기-model-코딩)
 * [3.7 어플리케이션 개발하기 - View 및 Template 코딩](#37-어플리케이션-개발하기-view-및-template-코딩)
-  * [처리흐름 설계](#처리흐름-설계)
-  * [3.7.1 URLconf 코딩](#371-urlconf-코딩)
-  * [3.7.2 뷰 함수 index() 및 템플릿 작성](#372-뷰-함수-index-및-템플릿-작성)
-  * [3.7.3 뷰 함수 detail() 및 폼 템플릿 작성](#373-뷰-함수-detail-및-폼-템플릿-작성)
-  * [3.7.4 뷰 함수 vote() 및 폼 템플릿 작성](#374-뷰-함수-vote-및-폼-템플릿-작성)
-  * [3.7.5 뷰 함수 results() 및 폼 템플릿 작성](#375-뷰-함수-results-및-폼-템플릿-작성)
+	* [처리흐름 설계](#처리흐름-설계)
+	* [3.7.1 URLconf 코딩](#371-urlconf-코딩)
+	* [3.7.2 뷰 함수 index() 및 템플릿 작성](#372-뷰-함수-index-및-템플릿-작성)
+	* [3.7.3 뷰 함수 detail() 및 폼 템플릿 작성](#373-뷰-함수-detail-및-폼-템플릿-작성)
+	* [3.7.4 뷰 함수 vote() 및 폼 템플릿 작성](#374-뷰-함수-vote-및-폼-템플릿-작성)
+	* [3.7.5 뷰 함수 results() 및 폼 템플릿 작성](#375-뷰-함수-results-및-폼-템플릿-작성)
 
  <!-- tocstop -->
 
- # 3.3 장고에서의 애플리케이션 개발 방식  
+# 3.3 장고에서의 애플리케이션 개발 방식  
 
- - 웹 사이트 설계시 가장 먼저 해야 할 일은 프로그램이 해야 할 일을 적당한 크기로 나누어 **모듈화** 하는 것
- - 장고에서는 웹사이트에 대한 전체 프로그램을 프로젝트(project) 라 하고, 모듈화된 단위 프로그램을 애플리케이션(application) 이라고 부른다.
+- 웹 사이트 설계시 가장 먼저 해야 할 일은 프로그램이 해야 할 일을 적당한 크기로 나누어 **모듈화** 하는 것
+- 장고에서는 웹사이트에 대한 전체 프로그램을 프로젝트(project) 라 하고, 모듈화된 단위 프로그램을 애플리케이션(application) 이라고 부른다.
 
- ## 3.3.1 MTV 패턴
- - 데이터, 사용자 인터페이스, 데이터 처리 로직을 구분해서 한 요소가 다른 요소에 영향을 주지 않도록 설계하는 방식
- - 장고에서는 MTV 패턴이라고 부름
+## 3.3.1 MTV 패턴
+- 데이터, 사용자 인터페이스, 데이터 처리 로직을 구분해서 한 요소가 다른 요소에 영향을 주지 않도록 설계하는 방식
+- 장고에서는 MTV 패턴이라고 부름
 
- ### 개발 순서
- - 프로젝트 뼈대 만들기 (project, app 생성)
- - 애플리케이션 설계하기 (화면ui, 테이블)
- - 애플리케이션 - Model 코딩
- - 애플리케이션 - URLcof 코딩
- - 애플리케이션 - Template 코딩
- - 애플리케이션 - view 코딩
+### 개발 순서
 
- ### 코딩순서
- - 뷰와 템플릿의 코딩 순서는 취향에 따라 진행해도 무관
- - 저자는 MTV 순으로 코딩
- - **자신만의 순서** 를 정하는 것이 로직을 풀어나가는데 일관성 유지 가능
+- **프로젝트 뼈대 만들기** : 프로젝트 및 앱 개발에 필요한 디렉터리와 파일 생성
+- **모델 코딩하기** : 테이블 관련 사항을 개발 (models.py, admin.py 파일)
+- **URLconf 코딩하기** : URL 및 뷰 매핑관계를 정의 (urls.py 파일)
+- **view 코딩하기** : 어플리케이션 로직 개발 (views.py 파일)
+- **템플릿 코딩하기** : 화면 UI 개발
 
- ## 3.3.2 Model - 데이터베이스 설계
- - 장고는 ORM 기법을 사용하여 DB를 클래스로 매핑하여 코딩 가능
- - sqlite3, mysql, postgresql 등 데이터베이스 엔진을 변경해도 ORM api 는 변경되지 않기 떄문에 손쉽게 db엔진 변경 가능
+### 코딩순서
+- 뷰와 템플릿의 코딩 순서는 취향에 따라 진행해도 무관
+- 저자는 MTV 순으로 코딩
+- **자신만의 순서** 를 정하는 것이 로직을 풀어나가는데 일관성 유지 가능
 
- ## 3.3.3 Template - 화면 UI 설계
- - 디자이너와 개발자간 협업이 편리
- - settings.py의 TEMPLATE_DIRS, INSTALLED_APPS 에서 지정된 디렉토리 내에서 템플릿을 탐색
+## 3.3.2 Model - 데이터베이스 설계
+- 장고는 ORM 기법을 사용하여 DB를 클래스로 매핑하여 코딩 가능
+- sqlite3, mysql, postgresql 등 데이터베이스 엔진을 변경해도 ORM api 는 변경되지 않기 떄문에 손쉽게 db엔진 변경 가능
 
- ## 3.3.4 URLconf - URL 설계
- - 파이썬의 URL 지정방식을 Elegant URL 라고도 부름
- - URL / viw 매핑을 URLconf 라고 함
+## 3.3.3 Template - 화면 UI 설계
+- 디자이너와 개발자간 협업이 편리
+- settings.py의 TEMPLATE_DIRS, INSTALLED_APPS 에서 지정된 디렉토리 내에서 템플릿을 탐색
 
- ## 3.3.5 View -로직 설계
- - 웹 요청을 받아서 로직에 맞는 처리를 하고 최종 응답 데이터를 웹 클라이언트에게 반환
+## 3.3.4 URLconf - URL 설계
+- 파이썬의 URL 지정방식을 Elegant URL 라고도 부름
+- URL / viw 매핑을 URLconf 라고 함
 
- ---
+## 3.3.5 View -로직 설계
+- 웹 요청을 받아서 로직에 맞는 처리를 하고 최종 응답 데이터를 웹 클라이언트에게 반환
 
- # 3.4 프로젝트 뼈대 만들기
- - 전체 프로그램인 프로젝트와, 프로젝트 하위의 서브 프로그램인 애플리케이션으로 구분
- - 하나의 애플리케이션이 여러개의 프로젝트에 포함될 수 있음 (재사용)  
+---
 
- ## 3.4.1 프로젝트 생성
+# 3.4 프로젝트 뼈대 만들기
+- 전체 프로그램인 프로젝트와, 프로젝트 하위의 서브 프로그램인 애플리케이션으로 구분
+- 하나의 애플리케이션이 여러개의 프로젝트에 포함될 수 있음 (재사용)  
 
- ```python
- $ django-admin startproject mysite
- $ python manage.py startapp myapp
- $ python manage.py migrate
- $ python manage.py createsuperuser
- $ python manage.py runserver
- ```
+## 3.4.1 프로젝트 생성
 
- ---
+```python
+$ django-admin startproject mysite
+$ python manage.py startapp myapp
+$ python manage.py migrate
+$ python manage.py createsuperuser
+$ python manage.py runserver
+```
 
- # 3.5 어플리케이션 개발하기 - 설계
- - 화면 UI, 테이블을 설계한다.
- - 애플리케이션 개요 : 설문에 해당하는 질문을 보여주고, 질문에 포함된 답변 항목에 투표한 후, 투표 결과를 알려준다.
+---
 
- ## 화면 UI 설계
+# 3.5 어플리케이션 개발하기 - 설계
+- 화면 UI, 테이블을 설계한다.
+- 애플리케이션 개요 : 설문에 해당하는 질문을 보여주고, 질문에 포함된 답변 항목에 투표한 후, 투표 결과를 알려준다.
 
- ![polls_ui](http://i.imgur.com/6ql4Unm.png)
+## 화면 UI 설계
 
- ## 테이블 설계
+![polls_ui](http://i.imgur.com/6ql4Unm.png)
 
- ![polls_table](http://i.imgur.com/GcMxefS.png)
+## 테이블 설계
 
- ---
+![polls_table](http://i.imgur.com/GcMxefS.png)
 
- # 3.6 어플리케이션 개발하기 - Model 코딩
- - 모델 작업은 DB에 테이블을 생성하도록 하는 작업
- - 다음과 같은 순서로 진행
+---
 
- ```shell
- $ vim setting.py # 설정 파일에 DB를 지정
- $ vim models.py # 테이블 정의
- $ vim admin.py # 정의된 테이블을 admin 화면에 표시
- $ python manage.py migrate # DB에 변경사항 반영
- $ python manage.py runserver # 개발용 서버로 작업내용 확인
- ```
+# 3.6 어플리케이션 개발하기 - Model 코딩
+- 모델 작업은 DB에 테이블을 생성하도록 하는 작업
+- 다음과 같은 순서로 진행
 
- ---
+```shell
+$ vim setting.py # 설정 파일에 DB를 지정
+$ vim models.py # 테이블 정의
+$ vim admin.py # 정의된 테이블을 admin 화면에 표시
+$ python manage.py migrate # DB에 변경사항 반영
+$ python manage.py runserver # 개발용 서버로 작업내용 확인
+```
 
- # 3.7 어플리케이션 개발하기 - View 및 Template 코딩
- - [3.3.3 Template - 화면 UI 설계](#333-template-화면-ui-설계) 에서 3개의 페이지를 사용
- - 해당 페이지를 보여주기 위한 뷰와 템플릿 코딩하려면, 요청에서부터 응답까지의 처리 흐름에 대한 로직 설계가 필요
+---
 
- ## 처리흐름 설계
- ![polls_process](http://i.imgur.com/ZGz9Llo.png)
+# 3.7 어플리케이션 개발하기 - View 및 Template 코딩
+- [3.3.3 Template - 화면 UI 설계](#333-template-화면-ui-설계) 에서 3개의 페이지를 사용
+- 해당 페이지를 보여주기 위한 뷰와 템플릿 코딩하려면, 요청에서부터 응답까지의 처리 흐름에 대한 로직 설계가 필요
 
- ## 3.7.1 URLconf 코딩
- - URLconf 설계 내용에 따르면 5개의 URL과 뷰가 필요, 해당 내용을 urls.py 파일에 작성
- - polls 어플리케이션 아래에 urls.py 파일을 두고 mysite/urls.py 에서 include 하여 **계층적** 으로 사용하는 것을 추천
+## 처리흐름 설계
+![polls_process](http://i.imgur.com/ZGz9Llo.png)
 
- ![polls_urlconf](http://i.imgur.com/Oi2d9Xc.png)
+## 3.7.1 URLconf 코딩
+- URLconf 설계 내용에 따르면 5개의 URL과 뷰가 필요, 해당 내용을 urls.py 파일에 작성
+- polls 어플리케이션 아래에 urls.py 파일을 두고 mysite/urls.py 에서 include 하여 **계층적** 으로 사용하는 것을 추천
 
- ## 3.7.2 뷰 함수 index() 및 템플릿 작성
- - 뷰 함수와 템플릿은 서로 영향을 미치기 때문에 보통 같이 작업
- - [화면 UI 설계](#화면-ui-설계) 에서 설계한 화면을 참고하여 template 파일 (index.html) 작성
- - 최근 질문 5개를 리스트로 표시
+![polls_urlconf](http://i.imgur.com/Oi2d9Xc.png)
 
- ## 3.7.3 뷰 함수 detail() 및 폼 템플릿 작성
- - [화면 UI 설계](#화면-ui-설계) 에서 설계한 화면을 참고하여 template 파일 (detail.html) 작성
- - 선택한 질문에 대한 답변 항목을 보여주고 투표하도록 화면을 구성
+## 3.7.2 뷰 함수 index() 및 템플릿 작성
+- 뷰 함수와 템플릿은 서로 영향을 미치기 때문에 보통 같이 작업
+- [화면 UI 설계](#화면-ui-설계) 에서 설계한 화면을 참고하여 template 파일 (index.html) 작성
+- 최근 질문 5개를 리스트로 표시
 
- ## 3.7.4 뷰 함수 vote() 및 폼 템플릿 작성
- - detail.html 의 폼으로 부터 수신한 POST 데이터를 처리하는 vote() 뷰 함수 작성
+## 3.7.3 뷰 함수 detail() 및 폼 템플릿 작성
+- [화면 UI 설계](#화면-ui-설계) 에서 설계한 화면을 참고하여 template 파일 (detail.html) 작성
+- 선택한 질문에 대한 답변 항목을 보여주고 투표하도록 화면을 구성
 
- ## 3.7.5 뷰 함수 results() 및 폼 템플릿 작성
- - 폼 데이터 처리 결과를 보여주는 로직 작성
+## 3.7.4 뷰 함수 vote() 및 폼 템플릿 작성
+- detail.html 의 폼으로 부터 수신한 POST 데이터를 처리하는 vote() 뷰 함수 작성
+
+## 3.7.5 뷰 함수 results() 및 폼 템플릿 작성
+- 폼 데이터 처리 결과를 보여주는 로직 작성
