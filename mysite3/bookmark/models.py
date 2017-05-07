@@ -6,7 +6,7 @@ class Bookmark(models.Model):
 	url = models.URLField('url', unique=True)
 
 	def get_absolute_url(self):
-		return reverse('detail', args=[self.id])
+		return reverse('bookmark:detail', args=[self.id])
 
 	def __str__(self):
 		return self.title
