@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-	'django_extensions',
+	'django_extensions', # TODO: app 등록 필요
 	'bookmark',
 	'blog',
 ]
@@ -77,7 +77,7 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 # https://docs.djangoproject.com/en/1.10/ref/settings/#databases
 
 DATABASES = {
-    'default': {
+    'default': { # TODO: db엔진 변경 시 수정 필요
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
@@ -106,9 +106,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/1.10/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'en-us' # TODO: 한글 사용시 ko-kr 로 변경, but dates generic view 사용시 링크에 문제 발생 가능 (ex. may > 5월)
 
-TIME_ZONE = 'Asia/Seoul'
+TIME_ZONE = 'Asia/Seoul' # TODO: timezone 설정
 
 USE_I18N = True
 
@@ -122,11 +122,11 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')] # 프로젝트 static 경로
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')] # TODO: 프로젝트 static 파일 경로 (css,js파일)
 
 
 # Media files
 
-MEDIA_URL = '/media/'
+MEDIA_URL = '/media/' # TODO: media url 경로 (파일 업로드 기능 개발시 필요)
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media') # TODO: media 파일 경로
